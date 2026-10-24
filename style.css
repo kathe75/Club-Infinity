@@ -1,0 +1,355 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #24334a;
+    background-color: white;
+    line-height: 1.6;
+}
+header {
+    background-color: white;
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+header h2 {
+    font-size: 28px;
+}
+
+header span {
+    color: #2878df;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #24334a;
+}
+
+nav a:hover {
+    color: #2878df;
+}
+.boton {
+    display: inline-block;
+    background-color: #2878df;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.inicio {
+    background-color: #eef6ff;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.inicio h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.inicio h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.inicio p {
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.imagen {
+    background-color: #cfe3f8;
+    width: 280px;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
+.seccion {
+    padding: 80px 8%;
+}
+
+.seccion h2,
+.nosotros h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+.servicios {
+    display: flex;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.tarjeta {
+    flex: 1;
+    border: 1px solid #dddddd;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.tarjeta h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.tarjeta p {
+    margin-bottom: 20px;
+}
+
+.tarjeta button,
+.opciones button,
+.chat button {
+    background-color: white;
+    color: #2878df;
+    border: 1px solid #2878df;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#mensaje-servicio {
+    margin-top: 25px;
+    color: #2878df;
+}
+.nosotros {
+    padding: 80px 8%;
+    background-color: #f2f8ff;
+}
+
+.nosotros p {
+    max-width: 700px;
+    margin-bottom: 15px;
+}
+.asistente {
+    background-color: #f5f3ff;
+}
+
+.asistente > p {
+    margin-bottom: 25px;
+}
+
+.opciones {
+    margin-bottom: 35px;
+}
+
+.opciones button {
+    margin: 5px;
+}
+
+.chat {
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 25px;
+    max-width: 650px;
+    margin-top: 25px;
+}
+
+.chat h3 {
+    margin-bottom: 20px;
+}
+
+#respuesta {
+    background-color: #f1f5fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.chat input {
+    padding: 12px;
+    width: 70%;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+.contacto form {
+    max-width: 600px;
+    margin-top: 30px;
+}
+
+.contacto label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+}
+
+.contacto input,
+.contacto select,
+.contacto textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.contacto textarea {
+    height: 120px;
+}
+
+.contacto button {
+    margin-top: 20px;
+}
+
+#resultado-formulario {
+    margin-top: 15px;
+}
+footer {
+    background-color: #24334a;
+    color: white;
+    padding: 35px 8%;
+    margin-top: 30px;
+}
+
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+@media (max-width: 750px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .inicio {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .imagen {
+        width: 100%;
+    }
+
+    .servicios {
+        flex-direction: column;
+    }
+
+    .chat input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .inicio h1 {
+        font-size: 34px;
+    }
+}
+.tarjeta img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.nosotros {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.nosotros img {
+    width: 40%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.nosotros div {
+    flex: 1;
+}
+@media (max-width: 750px) {
+    .nosotros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nosotros img {
+        width: 100%;
+    }
+}
+.imagen img {
+    width: 100%;
+    height: 170%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.logo h2 {
+    margin: 0;
+}
+.imagen-asistente {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 15px 0;
+}
+.recomendador {
+    background-color: white;
+    padding: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.recomendador h3 {
+    margin-bottom: 15px;
+}
+
+.recomendador select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.recomendador button {
+    padding: 10px 15px;
+    background-color: #2878df;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resultado-recomendacion {
+    margin-top: 20px;
+}
+
+

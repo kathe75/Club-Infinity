@@ -1,0 +1,208 @@
+<head>
+    
+    <title>Club Infinity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+    <img src="imagen logo.jpeg" alt="Logo Club Infinity">
+    <h2>Club <span>Infinity</span></h2>
+</div>
+
+        <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#asistente">Asistente IA</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#login">Iniciar sesión</a>
+</nav>
+    </header>
+
+    <section id="inicio" class="inicio">
+        <div>
+            <h1>Bienvenidos a Club Infinity</h1>
+
+            <h2>Aprende, entrena y supera tus límites.</h2>
+
+            <p>
+                Un lugar donde puedes practicar deporte,
+                aprender idiomas y mejorar tu condición física.
+            </p>
+
+            <a href="#servicios" class="boton">Conoce nuestros servicios</a>
+        </div>
+
+        <div class="imagen">
+    <img src="tenis.gif" alt="Club Infinity">
+</div>
+    </section>
+
+
+    <section id="servicios" class="seccion">
+    <h2>Nuestros servicios</h2>
+
+    <div class="servicios">
+
+        <div class="tarjeta">
+            <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6"
+                 alt="Cancha de tenis">
+
+            <h3>Tenis</h3>
+            <p>Clases para todos los niveles.</p>
+            <button onclick="mostrarServicio('tenis')">Ver más</button>
+        </div>
+
+        <div class="tarjeta">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8"
+                 alt="Libros para aprender idiomas">
+
+            <h3>Idiomas</h3>
+            <p>Inglés y otros idiomas.</p>
+            <button onclick="mostrarServicio('idiomas')">Ver más</button>
+        </div>
+
+        <div class="tarjeta">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48"
+                 alt="Gimnasio para entrenar">
+
+            <h3>Fitness</h3>
+            <p>Entrenamiento físico para todos.</p>
+            <button onclick="mostrarServicio('fitness')">Ver más</button>
+        </div>
+
+    </div>
+
+    <p id="mensaje-servicio"></p>
+</section>
+
+
+    <section id="nosotros" class="nosotros">
+
+    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72"
+         alt="Instalaciones del club">
+
+    <div>
+        <h2>Sobre nosotros</h2>
+
+        <p>
+            Club Infinity es un club deportivo y de aprendizaje que reúne deporte, idiomas, ejercicio y entretenimiento en un solo lugar. Nuestro objetivo es ofrecer un espacio donde niños, jóvenes y adultos puedan aprender nuevas habilidades, cuidar su salud, divertirse y compartir con otras personas.
+
+Queremos que cada socio encuentre una actividad que le guste, mejore sus capacidades y disfrute de una experiencia diferente, con servicios variados y atención personalizada.
+        </p>
+
+        <p>
+            
+        </p>
+    </div>
+
+</section>
+
+
+    <section id="asistente" class="seccion asistente">
+        <h2>Asistente Infinity</h2>
+
+        <p>
+            ¿No sabes qué actividad elegir?
+            Nuestro asistente te puede orientar.
+        </p>
+
+        <div class="opciones">
+            <button onclick="responderIA('tenis')">
+                Practicar un deporte
+            </button>
+
+            <button onclick="responderIA('idiomas')">
+                Aprender idiomas
+            </button>
+
+            <button onclick="responderIA('fitness')">
+                Mejorar mi condición física
+            </button>
+        </div>
+
+        <div class="chat">
+            <img src="imagenes/asistente.jpeg" alt="Asistente de Club Infinity"class="imagen-asistente">
+            <h3>Asistente Infinity</h3>
+
+            <p id="respuesta">
+                ¡Hola! Soy el asistente de Club Infinity.
+                ¿Qué te gustaría aprender?
+            </p>
+            
+
+            <input
+                type="text"
+                id="pregunta"
+                placeholder="Escribe tenis, idiomas o fitness"
+            >
+
+            <button onclick="preguntar()">Enviar</button>
+        </div>
+    </section>
+
+
+    <section id="contacto" class="seccion contacto">
+        <h2>Contáctanos</h2>
+
+        <p>Déjanos tus datos para conocer más sobre nuestros servicios.</p>
+
+        <form onsubmit="enviarFormulario(event)">
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" required>
+
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" required>
+
+            <label for="servicio">Servicio de interés</label>
+
+            <select id="servicio-contacto" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="Tenis">Tenis</option>
+                <option value="Idiomas">Idiomas</option>
+                <option value="Fitness">Fitness</option>
+            </select>
+
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje-contacto" required></textarea>
+
+            <button type="submit" class="boton">Enviar mensaje</button>
+
+            <p id="resultado-formulario"></p>
+
+        </form>
+    </section>
+<section id="login" class="seccion">
+    <h2>Iniciar sesión</h2>
+<p>Ingresa tus datos para acceder a Club Infinity.</p>
+
+    <form onsubmit="iniciarSesion(event)">
+
+        <label for="usuario">Correo electrónico</label>
+        <input type="email" id="usuario" required>
+
+        <label for="clave">Contraseña</label>
+        <input type="password" id="clave" required>
+
+        <button type="submit" class="boton">
+            Entrar
+        </button>
+
+        <p id="mensaje-login"></p>
+
+    </form>
+</section>
+
+    <footer>
+        <h3>Club Infinity</h3>
+        <p>© 2026 Club Infinity</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
