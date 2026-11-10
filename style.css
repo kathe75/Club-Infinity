@@ -351,5 +351,42 @@ footer h3 {
 #resultado-recomendacion {
     margin-top: 20px;
 }
+/* PANEL ADMINISTRATIVO */
 
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 25px;
+}
+
+.contenedor h1 {
+    color: #2878df;
+    margin-bottom: 10px;
+}
+
+.contenedor h2 {
+    margin-bottom: 20px;
+}
+
+.tarjeta-solicitud {
+    background-color: #f2f8ff;
+    border: 1px solid #d5e5f7;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.tarjeta-solicitud h3 {
+    color: #2878df;
+    margin-bottom: 10px;
+}
+
+.tarjeta-solicitud p {
+    margin-bottom: 8px;
+}
+
+#lista-solicitudes {
+    margin-top: 25px;
+}
 
