@@ -401,4 +401,9 @@ footer h3 {
 .boton:hover {
     background-color: #1d5fae;
 } 
-
+#resultado-formulario {
+    padding: 12px;
+    border-radius: 6px;
+    background-color: #f2f8ff;
+    overflow-wrap: anywhere;
+}
