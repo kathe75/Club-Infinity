@@ -64,34 +64,82 @@ function preguntar() {
 
     document.getElementById("pregunta").value = "";
 }
-function enviarFormulario(event) {
+async function enviarFormulario(event) {
     event.preventDefault();
 
     const nombre = document.getElementById("nombre").value;
     const correo = document.getElementById("correo").value;
     const servicio = document.getElementById("servicio-contacto").value;
     const mensaje = document.getElementById("mensaje-contacto").value;
+
     const resultado = document.getElementById("resultado-formulario");
 
-    if (
-        nombre === "" ||
-        correo === "" ||
-        servicio === "" ||
-        mensaje === ""
-    ) {
-        resultado.textContent = "Completa todos los campos.";
-        resultado.style.color = "red";
-    }
+    try {
+        const respuesta = await fetch('/api/solicitudes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nombre,
+                correo,
+                servicio,
+                mensaje
+            })
+        });
 
-    else {
+        const datos = await respuesta.json();
+
+        if (!respuesta.ok) {
+            throw new Error(datos.error || 'Error al enviar');
+        }
+
         resultado.textContent =
-            "Gracias, " + nombre + ". Tu formulario se ha validado correctamente.";
-        resultado.style.color = "green";
+            'Gracias, ' + nombre + '. Tu solicitud fue recibida correctamente.';
+
+        resultado.style.color = 'green';
+
+        event.target.reset();
+
+    } catch (error) {
+        resultado.textContent =
+            'No se pudo enviar la solicitud. Inténtalo nuevamente.';
+
+        resultado.style.color = 'red';
+
+        console.error(error);
     }
 }
-function iniciarSesion(event) {
+async function iniciarSesion(event) {
+    console.log("SE EJECUTÓ LA FUNCIÓN DE INICIO DE SESIÓN");
     event.preventDefault();
 
-    document.getElementById("mensaje-login").textContent =
-        "El formulario funciona, pero falta conectar el sistema de usuarios.";
+    const usuario = document.getElementById("usuario").value;
+    const clave = document.getElementById("clave").value;
+    const mensaje = document.getElementById("mensaje-login");
+
+    try {
+        const respuesta = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ usuario, clave })
+        });
+
+        const datos = await respuesta.json();
+
+        if (!respuesta.ok) {
+            throw new Error(datos.error || "Datos incorrectos");
+        }
+
+        window.location.href = "/admin.html";
+
+    } catch (error) {
+        mensaje.textContent = error.message;
+    }
 }
+console.log("SCRIPT.JS SE CARGÓ CORRECTAMENTE");
+
+
+
