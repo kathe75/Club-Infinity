@@ -1,3 +1,46 @@
+window.addEventListener("DOMContentLoaded", () => {
+    if (sessionStorage.getItem("adminAutenticado") === "true") {
+        mostrarPanel();
+    }
+});
+
+function mostrarPanel() {
+    document.getElementById("seccion-login").style.display = "none";
+    document.getElementById("seccion-panel").style.display = "block";
+    cargarSolicitudes();
+}
+
+async function realizarLogin(event) {
+    event.preventDefault();
+
+    const usuario = document.getElementById("usuario").value;
+    const clave = document.getElementById("clave").value;
+    const mensaje = document.getElementById("mensaje-login");
+
+    try {
+        const respuesta = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ usuario, clave })
+        });
+
+        const datos = await respuesta.json();
+
+        if (respuesta.ok) {
+            sessionStorage.setItem("adminAutenticado", "true");
+            mostrarPanel();
+        } else {
+            mensaje.textContent = datos.error || "Correo o contraseña incorrectos";
+        }
+
+    } catch (error) {
+        mensaje.textContent = "Error al conectar con el servidor";
+        console.error(error);
+    }
+}
+
 async function cargarSolicitudes() {
     const lista = document.getElementById("lista-solicitudes");
 
@@ -38,8 +81,7 @@ async function cargarSolicitudes() {
 }
 
 function cerrarSesion() {
+    
+    sessionStorage.removeItem("adminAutenticado");
     window.location.href = "index.html";
 }
-
-document.addEventListener("DOMContentLoaded", cargarSolicitudes);
-

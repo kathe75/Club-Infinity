@@ -111,7 +111,6 @@ async function enviarFormulario(event) {
     }
 }
 async function iniciarSesion(event) {
-    console.log("SE EJECUTÓ LA FUNCIÓN DE INICIO DE SESIÓN");
     event.preventDefault();
 
     const usuario = document.getElementById("usuario").value;
@@ -129,17 +128,21 @@ async function iniciarSesion(event) {
 
         const datos = await respuesta.json();
 
-        if (!respuesta.ok) {
-            throw new Error(datos.error || "Datos incorrectos");
+        if (respuesta.ok) {
+            sessionStorage.setItem("adminAutenticado", "true");
+            window.location.href = "admin.html";
+        } else {
+            mensaje.textContent = datos.error || "Datos incorrectos";
         }
 
-        window.location.href = "/admin.html";
-
     } catch (error) {
-        mensaje.textContent = error.message;
+        mensaje.textContent = "Error al conectar con el servidor";
+        console.error(error);
     }
 }
+
 console.log("SCRIPT.JS SE CARGÓ CORRECTAMENTE");
+
 
 
 

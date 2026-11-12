@@ -7,16 +7,16 @@ const { MongoClient } = require('mongodb');
 const app = express();
 const PORT = 3001;
 
-// Conexión con MongoDB
+
 const cliente = new MongoClient(process.env.MONGODB_URI);
 
 let solicitudesCollection;
 
-// Configuración para recibir datos
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Mostrar las peticiones recibidas
+
 app.use((req, res, next) => {
     console.log('PETICIÓN RECIBIDA:', req.method, req.url);
     next();
@@ -29,7 +29,7 @@ app.get('/api/estado', (req, res) => {
     });
 });
 
-// Inicio de sesión del administrador
+
 app.post('/api/login', (req, res) => {
     console.log('INTENTO DE INICIO DE SESIÓN:', req.body.usuario);
 
@@ -49,7 +49,7 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-// Consultar solicitudes guardadas en MongoDB
+
 app.get('/api/solicitudes', async (req, res) => {
     try {
         const solicitudes = await solicitudesCollection
@@ -68,7 +68,7 @@ app.get('/api/solicitudes', async (req, res) => {
     }
 });
 
-// Recibir y guardar solicitudes de contacto
+
 app.post('/api/solicitudes', async (req, res) => {
     console.log('DATOS RECIBIDOS:', req.body);
 
@@ -112,15 +112,15 @@ app.post('/api/solicitudes', async (req, res) => {
     }
 });
 
-// Mostrar la página principal
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Mostrar los archivos del proyecto
+
 app.use(express.static(__dirname));
 
-// Conectar a MongoDB e iniciar el servidor
+
 async function iniciarServidor() {
     try {
         if (!process.env.MONGODB_URI) {

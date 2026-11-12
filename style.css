@@ -407,3 +407,26 @@ footer h3 {
     background-color: #f2f8ff;
     overflow-wrap: anywhere;
 }
+img {
+    max-width: 100%;
+}
+
+@media (max-width: 480px) {
+    .seccion,
+    .nosotros {
+        padding: 45px 6%;
+    }
+
+    .inicio {
+        padding: 50px 6%;
+    }
+
+    header h2 {
+        font-size: 23px;
+    }
+
+    .logo img {
+        width: 160px;
+        height: auto;
+    }
+}
